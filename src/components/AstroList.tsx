@@ -1,6 +1,6 @@
 import { Card, Col, Container, Row, Pagination, Modal, Button } from "react-bootstrap";
 import astroList from "../data/astroList";
-import { useState } from "react";
+import {  useEffect, useState } from "react";
 import ImageFilterer from "./ImageFilterer";
 import LazyImage from "./LazyImage";  
 
@@ -19,6 +19,7 @@ const AstroList = ({ search, checked, category, itemsPerPage }: { search: string
     const sortedFilteredList = sortedNames.length > 0
         ? filteredList.sort((a, b) => sortedNames.indexOf(a.nom) - sortedNames.indexOf(b.nom))
         : filteredList;
+
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -60,6 +61,10 @@ const AstroList = ({ search, checked, category, itemsPerPage }: { search: string
     }
 
     paginationItems.push(<Pagination.Last onClick={handleLastPageChange} active={false} />);
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [search, checked, category, sortedNames]);
 
     return (
         <Container>
