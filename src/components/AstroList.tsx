@@ -1,4 +1,4 @@
-import { Card, Col, Container, Row, Pagination } from "react-bootstrap";
+import { Card, Col, Container, Row, Pagination, Modal, Button } from "react-bootstrap";
 import astroList from "../data/astroList";
 import { useState } from "react";
 import ImageFilterer from "./ImageFilterer";
@@ -7,6 +7,8 @@ import LazyImage from "./LazyImage";
 const AstroList = ({ search, checked, category, itemsPerPage }: { search: string; checked: boolean; category: string; itemsPerPage: number }) => {
     const [sortedNames, setSortedNames] = useState<string[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [showModal, setShowModal] = useState(false);  
+    const [selectedItem, setSelectedItem] = useState<{ nom: string; description: string } | null>(null); 
 
     const filteredList = astroList.filter(item =>
         item.nom.toLowerCase().includes(search.toLowerCase()) &&
@@ -22,9 +24,12 @@ const AstroList = ({ search, checked, category, itemsPerPage }: { search: string
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = sortedFilteredList.slice(indexOfFirstItem, indexOfLastItem);
 
-    const handleClick = (nom: string) => {
-        alert(`Vous avez cliqué sur ${nom}`);
+    const handleImageClick = (item: { nom: string; description: string }) => {
+        setSelectedItem(item);  
+        setShowModal(true);    
     };
+
+    const handleCloseModal = () => setShowModal(false);
 
     const handlePageChange = (pageNumber: number) => {
         setCurrentPage(pageNumber);
@@ -68,7 +73,12 @@ const AstroList = ({ search, checked, category, itemsPerPage }: { search: string
                     currentItems.map(item => (
                         <Col key={item.id} lg={4} md={6} xs={12} className="mb-4 d-flex justify-content-center">
                             <Card className="border-4 border-black p-3 pb-0" style={{ maxWidth: '200px' }}>
-                                <LazyImage src={item.visuel} alt={item.nom} />
+                                <div 
+                                    style={{ cursor: 'pointer' }}  
+                                    onClick={() => handleImageClick(item)}
+                                >
+                                    <LazyImage src={item.visuel} alt={item.nom} />
+                                </div>
                                 <Card.Body>
                                     <Card.Title>{item.nom}</Card.Title>
                                     <Card.Text>{item.categories}</Card.Text>
@@ -89,6 +99,21 @@ const AstroList = ({ search, checked, category, itemsPerPage }: { search: string
             <Row className="justify-content-center mt-3">
                 <Pagination className="justify-content-center">{paginationItems}</Pagination>
             </Row>
+
+
+            <Modal show={showModal} onHide={handleCloseModal}>
+                <Modal.Header closeButton>
+                    <Modal.Title>{selectedItem?.nom}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {selectedItem?.description}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseModal}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </Container>
     );
 };

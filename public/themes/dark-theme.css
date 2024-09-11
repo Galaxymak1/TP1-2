@@ -1,0 +1,63 @@
+
+body {
+    background-color: #121212; 
+    color: #e0e0e0;
+}
+
+
+.card {
+    background-color: #1e1e1e;
+    color: #e0e0e0; 
+    border-color: #333;
+}
+
+.card-title, .card-text {
+    color: #e0e0e0; 
+}
+
+
+.btn-outline-dark {
+    color: #e0e0e0; 
+    border-color: #e0e0e0; 
+}
+
+.btn-outline-dark:hover {
+    background-color: #333; 
+}
+
+
+.pagination .page-item.active .page-link {
+    background-color: #333; 
+    border-color: #333; 
+}
+
+.pagination .page-link {
+    color: #e0e0e0; 
+}
+
+
+.modal-content {
+    background-color: #1e1e1e; 
+    color: #e0e0e0; 
+}
+
+.modal-header .btn-close {
+    filter: invert(1); 
+}
+
+.text-info {
+    color: #4caf50;
+}
+.page-link {
+
+    background-color: #121212;
+}
+.page-item :hover {
+    color: #121212 !important;
+}
+.page-item.active :hover {
+    color: #ffffff !important;
+}
+.pagination .page-item.active .page-link {
+    border: solid 1px white;
+}

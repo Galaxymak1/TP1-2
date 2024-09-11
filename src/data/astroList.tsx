@@ -11,37 +11,43 @@ const baseList = [
         nom: "Chat",
         categories: "Animals",
         pluslikes: false,
-        visuel: chat
+        visuel: chat,
+        description : "c'est un chat"
     },
     {
         nom: "Astro Cafe",
         categories: "Places",
         pluslikes: true,
-        visuel: astroCafe
+        visuel: astroCafe,
+        description : "c'est un astronaute qui boit du café"
     },
     {
         nom: "Astro Clavier",
         categories: "Tech",
         pluslikes: false,
-        visuel: astroClavier
+        visuel: astroClavier,
+        description : "c'est un astronaute tape sur un clavier"
     },
     {
         nom: "Astro Manette",
         categories: "Tech",
         pluslikes: true,
-        visuel: astroManette
+        visuel: astroManette,
+        description : "c'est un astronaute utilise une manette"
     },
     {
         nom: "Chat Jeu",
         categories: "Games",
         pluslikes: true,
-        visuel: chatJeu
+        visuel: chatJeu,
+        description : "c'est un chat qui joue"
     },
     {
         nom: "Chien Jeu",
         categories: "Games",
         pluslikes: false,
-        visuel: chienJeu
+        visuel: chienJeu,
+        description : "c'est un chat qui joue"
     }
 ];
 
@@ -57,7 +63,8 @@ const generateDynamicList = (numItems: number) => {
             ...baseItem,
             id: `${i}-${baseItem.nom}-${Math.random().toString(36).substr(2, 5)}`, 
             nom: `${baseItem.nom} ${i}`, 
-            pluslikes: Math.random() < 0.5 
+            pluslikes: Math.random() < 0.5 ,
+            description:`${baseItem.description}`
         };
 
         newList.push(newItem);
