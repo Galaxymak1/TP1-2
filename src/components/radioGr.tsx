@@ -31,7 +31,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({ categories, selectedCategory, o
                             />
                         ))}
                     </div>
-                    <Button variant='outline-secondary' className='ms-2' onClick={handleClick}>
+                    <Button variant='outline-dark' className='ms-2' onClick={handleClick}>
                         Reset
                     </Button>
                 </Form.Group>

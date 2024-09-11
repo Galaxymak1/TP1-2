@@ -15,14 +15,12 @@ function Home() {
   return (
     <>
     <Title title={name} undertitle='Un site pour faire des tests'></Title>
-      <div className=''>
+      <div className='pb-3'>
         <BandeauLogo></BandeauLogo>
       </div>
-      <h1>Vite + React</h1>
+
       <Compteur></Compteur>
-      {/* <Button variant="outline-dark" href='/page1'>
-        Go to page 1
-      </Button> */}
+
 
     </>
   )

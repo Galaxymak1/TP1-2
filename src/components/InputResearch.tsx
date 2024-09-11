@@ -12,8 +12,8 @@ export function Forms({ onSearchSubmitted }: { onSearchSubmitted: (input: string
 
     return (
         <div>
-            <Form className="d-inline-flex align-items-center py-3" onSubmit={handleSubmit}>
-                <p className="text m-0 ">
+            <Form className="d-inline-flex align-items-center justify-content-center py-3" onSubmit={handleSubmit}>
+                <p className="m-0 ">
                     Rechercher par nom :
                 </p>
                 <Form.Control
