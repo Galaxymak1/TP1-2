@@ -1,8 +1,8 @@
 import { Card, Col, Container, Row, Pagination, Modal, Button } from "react-bootstrap";
 import astroList from "../data/astroList";
 import {  useEffect, useState } from "react";
-import ImageFilterer from "./ImageFilterer";
-import LazyImage from "./LazyImage";  
+import ImageFilterer from "../components/ImageFilterer";
+import LazyImage from "../components/LazyImage";  
 
 const AstroList = ({ search, checked, category, itemsPerPage }: { search: string; checked: boolean; category: string; itemsPerPage: number }) => {
     const [sortedNames, setSortedNames] = useState<string[]>([]);

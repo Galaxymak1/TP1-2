@@ -1,21 +1,25 @@
+import { Container } from 'react-bootstrap';
 import { useTheme } from '../contexts/ThemeContext';
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const ThemeSwitcher = () => {
     const { theme, toggleTheme } = useTheme();
 
     return (
-        <div className="form-check form-switch d-inline-flex justify-content-start">
+        <Container className="form-check form-switch d-inline-flex justify-content-end align-items-center">
             <input
-                className="form-check-input me-3"
+                className="form-check-input me-3 mb-1"
                 type="checkbox"
                 id="themeSwitcher"
                 checked={theme === 'dark'}
                 onChange={toggleTheme}
             />
-            <label className="form-check-label" htmlFor="themeSwitcher">
-                Switch to {theme === 'light' ? 'Dark' : 'Light'} Theme
-            </label>
-        </div>
+            {theme === 'light' ? (
+                <FaSun size={20} className='logoDay' />
+            ) : (
+                <FaMoon size={20} className='logoNight' />
+            )}
+        </Container>
     );
 };
 

@@ -6,7 +6,7 @@ import { Forms } from "../components/InputResearch";
 import { useState } from "react";
 import { CheckBox } from "../components/checkBox";
 import RadioGroup from "../components/radioGr";
-import AstroList from "../components/AstroList";
+import AstroList from "../containers/AstroList";
 
 const Page2 = () => {
     const categories = astroList.reduce<string[]>((catList, astro) =>
@@ -31,7 +31,7 @@ const Page2 = () => {
     };
 
     return (
-        <Container>
+        <Container className="pt-5">
             <Title title="Galerie des petits astronautes" undertitle="Leurs plus beaux clichés" />
             <div className="py-3">
                 <Forms onSearchSubmitted={handleResearch} />

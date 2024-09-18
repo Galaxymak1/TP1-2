@@ -20,7 +20,7 @@ const LazyImage: React.FC<LazyImageProps> = ({ src, alt }) => {
                 });
             },
             {
-                threshold: 0.1, 
+                threshold: 0.01, 
             }
         );
 

@@ -4,18 +4,24 @@ import ThemeWrapper from './components/ThemeWrapper';
 import Home from './Home';
 import Page1 from './page1/page1';
 import Page2 from './page 2/page2';
-import ThemeSwitcher from './components/ThemeSwitcher';
+import NavBar from './containers/NavBar/NavBar';
+import Meteo from './containers/Meteo'
+import Map from './components/Map'; 
 
 function App() {
     return (
         <ThemeProvider>
+            <header>
+                <NavBar></NavBar>
+            </header>
             <Router>
                 <ThemeWrapper>
-                    <ThemeSwitcher />
                     <Routes >
                         <Route path="/" element={<Home />} />
                         <Route path="/page1" element={<Page1 />} />
                         <Route path="/page2" element={<Page2 />} />
+                        <Route path="/weather" element={<Meteo />}>  </Route>
+                        <Route path="/map" element={<Map />}>  </Route>
                     </Routes>
                 </ThemeWrapper>
             </Router>

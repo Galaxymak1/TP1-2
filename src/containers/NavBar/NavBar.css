@@ -1,0 +1,10 @@
+.custom-navbar{
+    height: 50px;
+    margin-inline: 10vw;
+    border-radius: 20px;
+    background-color: rgb(78, 224, 253);
+    border: solid 1px black;
+}
+.NavBrand {
+    color: black;
+}
