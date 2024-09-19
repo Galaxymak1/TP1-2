@@ -1,16 +1,28 @@
 import { Container, Form, Button } from "react-bootstrap";
 import Weather from "../components/WeatherComponent"; 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Meteo = () => {
     const apiKey = "f85e60abf8a3c66b915b7bd0b166d36e";
 
     const [city, setCity] = useState<string>("London");
-    const [submittedCity, setSubmittedCity] = useState<string>(city);
+    const [submittedCity, setSubmittedCity] = useState<string>("");
+
+ 
+    useEffect(() => {
+        const storedCity = localStorage.getItem("city");
+        if (storedCity) {
+            setSubmittedCity(storedCity); 
+            setCity(storedCity); 
+        } else {
+            setSubmittedCity(city); 
+        }
+    }, []);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setSubmittedCity(city); 
+        localStorage.setItem("city", city); 
     };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

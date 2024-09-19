@@ -38,7 +38,7 @@ const Weather: React.FC<WeatherProps> = ({ apiKey, city }) => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        console.log(city)
+
         const fetchWeatherData = async () => {
             try {
                 const response = await fetch(
@@ -59,8 +59,10 @@ const Weather: React.FC<WeatherProps> = ({ apiKey, city }) => {
                 setLoading(false);
             }
         };
-
-        fetchWeatherData();
+        if(city){
+            fetchWeatherData();
+        }
+        
     }, [apiKey, city]);
 
     if (loading) return <p>Loading weather data...</p>;

@@ -14,9 +14,10 @@ const NavBar= () => {
             </NavbarBrand>
             <Nav className="me-auto d-none d-sm-flex">
                 <Nav.Link href="/page1" className='text-dark'>Page 1</Nav.Link>
-                <Nav.Link href="/page2" className='text-dark'>Page 2</Nav.Link>
-                <Nav.Link href="/weather" className='text-dark'>Weather</Nav.Link>
+                <Nav.Link href="/page2" className='text-dark'>Galerie</Nav.Link>
+                <Nav.Link href="/weather" className='text-dark'>Meteo</Nav.Link>
                 <Nav.Link href="/map" className='text-dark'>Carte</Nav.Link>
+                <Nav.Link href="/calendar" className='text-dark'>Calendrier</Nav.Link>
             </Nav>
 
 

@@ -71,7 +71,12 @@ body {
 .text-dark{
     color: white !important;
 }
-
+.text-white{
+    color: black !important;
+}
+/* .bg-black{
+    background-color: white !important;
+} */
 .text-info {
     color: white !important;
 }

@@ -7,6 +7,7 @@ import Page2 from './page 2/page2';
 import NavBar from './containers/NavBar/NavBar';
 import Meteo from './containers/Meteo'
 import Map from './components/Map'; 
+import CalendarComponent from './components/Calendar/CalendarComponent';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                         <Route path="/page2" element={<Page2 />} />
                         <Route path="/weather" element={<Meteo />}>  </Route>
                         <Route path="/map" element={<Map />}>  </Route>
+                        <Route path="/calendar" element={<CalendarComponent />}>  </Route>
                     </Routes>
                 </ThemeWrapper>
             </Router>
